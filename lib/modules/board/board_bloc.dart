@@ -39,13 +39,14 @@ class BoardBloc implements Disposable {
     await File(path).writeAsBytes(bytes);
   }
 
-  void start(String address) {
-    _initController.add(true);
+  void start(String address) async {
     _client = SocketClient()
       ..onStatus = _statusController.add
       ..onMessage = _onMessage
       ..onAnchor = _anchorController.add
       ..start(address);
+
+    _initController.add(true);
   }
 
   void stop() {

@@ -49,6 +49,8 @@ class SocketClient implements Disposable {
 
   void stop() {
     _client.disconnect();
+    _client.clearListeners();
+    _client.close();
   }
 
   void postMessage(String message) {

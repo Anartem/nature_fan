@@ -21,14 +21,15 @@ class TreeBloc implements Disposable {
 
   TreeBloc(this._messageStorage, this._anchorStorage);
 
-  void start() {
-    _initController.add(true);
+  void start() async {
     _server = SocketServer()
       ..onStatus = _statusController.add
       ..onMessage = _messageStorage.insertData
       ..onRefresh = _messageStorage.getData
       ..onAnchor = _onAnchor
       ..start();
+
+    _initController.add(true);
   }
 
   void stop() {

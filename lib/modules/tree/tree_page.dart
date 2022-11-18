@@ -52,7 +52,6 @@ class _TreePageState extends State<TreePage> {
                         return Text(snapshot.data ?? "");
                       },
                     ),
-                    const SizedBox(width: 16),
                   ],
                 ),
               );
