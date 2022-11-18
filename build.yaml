@@ -1,0 +1,17 @@
+targets:
+  $default:
+    builders:
+      json_serializable|json_serializable:
+        enabled: true
+        generate_for:
+          - "lib/models/**.dart"
+
+      hive_generator|hive_generator:
+        enabled: true
+        generate_for:
+          - "lib/models/**.dart"
+
+      source_gen|combining_builder:
+        options:
+          build_extensions:
+            '^lib/{{}}.dart': 'lib/gen/{{}}.gen.dart'
